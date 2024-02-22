@@ -1,0 +1,17 @@
+---Utilizar base de datos---
+USE Equipo_Categoria;
+
+---Crear las tablas de la base de datos---
+CREATE TABLE Categoria (
+CategoriaId INT PRIMARY KEY IDENTITY(1,1),
+Nombre_Categoria VARCHAR(50) NOT NULL,
+Descripcion_categoria TEXT
+);
+
+CREATE TABLE Equipo (
+    Id_Equipo INT PRIMARY KEY IDENTITY(1,1),
+    Nombre_Equipo VARCHAR(100) NOT NULL,
+    Id_Categoria INT,
+	Imagen IMAGE,
+    CategoriaId INT FOREIGN KEY REFERENCES Categoria(CategoriaId) NOT NULL
+);
